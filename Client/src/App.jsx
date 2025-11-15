@@ -8,6 +8,13 @@ function App() {
 
   return (
    <>
+   <form action="" method="post">
+    <label htmlFor="username">Username:</label>
+    <input type="text" id="username" name="username" />
+    <label htmlFor="email">Email:</label>
+    <input type="email" id="email" name="email" />
+    <input type="submit" value="Submit" />
+   </form>
    </>
   )
 }
