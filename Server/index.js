@@ -1,16 +1,15 @@
-const express=require('express')
-const app=express()
-const authRouter=require('./module/route/authRouter')
-const db=require('./config/db')
+import express from "express";
+import cors from "cors";
+import userRoutes from "./routes/userRoutes.js";
+import "./config/db.js";
 
-app.use(express.json())
+const app = express();
+app.use(cors());
+app.use(express.json());
 
-app.use('/auth',authRouter)
-app.get('/',(req,res)=>{
-    res.send('working')
-})
+// Routes
+app.use("/users", userRoutes);
 
-app.listen(3000,()=>{
-    console.log('Server is running on port 3000')
-})
-
+app.listen(5000, () => {
+  console.log("Server Running on port 5000");
+});
