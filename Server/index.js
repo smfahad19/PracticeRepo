@@ -1,15 +1,10 @@
-import express from "express";
-import cors from "cors";
-import userRoutes from "./routes/userRoutes.js";
-import "./config/db.js";
-
+const express = require("express");
 const app = express();
-app.use(cors());
-app.use(express.json());
+const dashboardRouter = require("./modules/dashboard");
 
-// Routes
-app.use("/users", userRoutes);
+app.use("/api", dashboardRouter);
+app.use("/api/canddate", candidatedataRouter);
 
-app.listen(5000, () => {
-  console.log("Server Running on port 5000");
+app.listen(3000, () => {
+  console.log("Server is running on port 3000");
 });
